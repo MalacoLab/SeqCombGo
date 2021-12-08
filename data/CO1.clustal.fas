@@ -1,0 +1,67 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+Bradybaena_phaeogramma_phaeogr      TACATACTATTTGGTGTTTGATGCGGAATAGTTGGTACTGGTTTGAGATT
+Bradybaena_circulus_circulus        TATATATTATTTGGTGTTTGGTGTGGGATAGTTGGTACAGGTTTAAGATT
+Bradybaena_virgo_virgo              ---------------GTGTGGTGCGGTATAGTTGGCACAGGTTTAAGGTT
+                                                   ** ** ** ** ******** ** ***** ** **
+
+Bradybaena_phaeogramma_phaeogr      ATTAATTCGAATAGAGCTAGGAAGCTCAGGCGTGGTAGTTGAGGAACATT
+Bradybaena_circulus_circulus        ATTGATTCGAATAGAGTTAGGTAGTTCTGGTGTTATAGCAGAAGAGCATT
+Bradybaena_virgo_virgo              GCTGATTCGAATAGAACTAGGTACTGCTGGCGTATTGAGAGATGAGCATT
+                                      * ***********  **** *   * ** **  *    ** ** ****
+
+Bradybaena_phaeogramma_phaeogr      TTTTTAATGTTATTGTGACAGCGCATGCATTTGTGATAATTTTCTTTATA
+Bradybaena_circulus_circulus        TCTACAATGTTATTGTAACAGCTCATGCTTTTGTAATAATTTTTTTTATA
+Bradybaena_virgo_virgo              TTTATAATGTAATCGTCACCGCCCACGCCTTTGTGATAATTTTTTTTATA
+                                    * *  ***** ** ** ** ** ** ** ***** ******** ******
+
+Bradybaena_phaeogramma_phaeogr      GTTATACCTATTATAATTGGGGGCTTTGGAAATTGAATAGTACCACTGCT
+Bradybaena_circulus_circulus        GTTATGCCAATCATGATTGGAGGTTTTGGAAATTGAATAGTACCGTTGTT
+Bradybaena_virgo_virgo              GTTATACCAATTATGATTGGCGGCTTCGGTAATTGAATAGTGCCATTATT
+                                    ***** ** ** ** ***** ** ** ** *********** **  *  *
+
+Bradybaena_phaeogramma_phaeogr      GATTGGGGCTCCGGACATGAGTTTTCCACGTATAAACAATATAAGGTTTT
+Bradybaena_circulus_circulus        GATTGGGGCACCCGATATGAGCTTTCCACGTATAAACAATATAAGGTTTT
+Bradybaena_virgo_virgo              GATTGGAGCTCCAGACATAAGGTTTCCTCGAATGAATAATATAAGTTTTT
+                                    ****** ** ** ** ** ** ***** ** ** ** ******** ****
+
+Bradybaena_phaeogramma_phaeogr      GATTGTTACCCCCTTCTTTTCTTTTATTAATTAGGAGAAGTTTAGTAGAG
+Bradybaena_circulus_circulus        GATTGTTACCCCCTTCTTTTCTTCTATTAATTAGAAGTAGTCTAGTAGAA
+Bradybaena_virgo_virgo              GATTACTACCTCCGTCCTTTGTACTATTAATTAGGAGGAGATTAGTAGAA
+                                    ****  **** ** ** *** *  ********** ** **  ******* 
+
+Bradybaena_phaeogramma_phaeogr      GGTGGAGCAGGAACTGGGTGAACAGTTTACCCACCCCTAAGGTCTTTGGC
+Bradybaena_circulus_circulus        GGCGGTGCAGGGACCGGTTGAACAGTGTATCCTCCACTTAGCTCACTTGT
+Bradybaena_virgo_virgo              GGAGGGGCTGGTACTGGTTGGACGGTTTACCCCCCATTAAGAACACTTAC
+                                    ** ** ** ** ** ** ** ** ** ** ** **  * **  *  *   
+
+Bradybaena_phaeogramma_phaeogr      TGGCCATGGAGGAGCATCTGTGGATTTAGCAATTTTCTCCCTTCATTTAG
+Bradybaena_circulus_circulus        AGGTCATAGGAGAGCTGCCGTAGACTTAGCAATCTTTTCTCTTCATTTGG
+Bradybaena_virgo_virgo              AGGGCATAGAGGTGCTTCGGTAGACTTGGCTATTTTTTCTTTGCATTTGG
+                                     ** *** *  * **  * ** ** ** ** ** ** **  * ***** *
+
+Bradybaena_phaeogramma_phaeogr      CTGGAATGTCTTCTATTTTAGGTGCGATTAATTTTATTACCACAATCTTC
+Bradybaena_circulus_circulus        CTGGGATATCATCAATTTTAGGTGCAATCAATTTTATTACAACTATTTTT
+Bradybaena_virgo_virgo              CAGGTATGTCTTCTATTTTAGGGGCCATTAATTTTATTACTACTATTTTT
+                                    * ** ** ** ** ******** ** ** *********** ** ** ** 
+
+Bradybaena_phaeogramma_phaeogr      AATATACGGGCTCCCGGCATAACAATGGAGCGAGTTAGATTATTTGTGTG
+Bradybaena_circulus_circulus        AATATACGAGCCCCAGGAATAACTATGGAACGTGTTAGACTGTTTGTTTG
+Bradybaena_virgo_virgo              AATATACGAGCACCAGGTTTGTCAATAGAACGAGTGAGCTTATTTGTGTG
+                                    ******** ** ** **  *  * ** ** ** ** **  * ***** **
+
+Bradybaena_phaeogramma_phaeogr      GTCAATTTTAGTAACAGTATTTCTTTTATTGTT-----------------
+Bradybaena_circulus_circulus        ATCTATTTTAGTGACAGTGTTTCTTTTATTACT-----------------
+Bradybaena_virgo_virgo              GTCAATTCTCATTACGGTTTTTTTACTACTACTTTCATTACCCGTCTTAG
+                                     ** *** *  * ** ** *** *  ** *  *                 
+
+Bradybaena_phaeogramma_phaeogr      --------------------------------------------------
+Bradybaena_circulus_circulus        --------------------------------------------------
+Bradybaena_virgo_virgo              CGGGGGCTATTACTATATTATTAACTGATCGAAATTTTAATACTTCTTTT
+                                                                                      
+
+Bradybaena_phaeogramma_phaeogr      ----------
+Bradybaena_circulus_circulus        ----------
+Bradybaena_virgo_virgo              TTTGATCCCG
+                                              
