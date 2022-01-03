@@ -3,27 +3,54 @@ package main
 import (
 	"flag"
 	"fmt"
+	"gocomb/src"
 	"io/ioutil"
+	"os"
+	"text/template"
 )
 
+type Person struct {
+	Name string
+	DNA  string
+}
+
 func main() {
-	file_flag := flag.String("o", "a.ast", "files name wait to out")
+
+	file_flag := flag.String("o", "a.nex", "files name wait to out")
 	// 这里一定要是指针样子
 	flag.Parse()
 	file_names := flag.Args() // []string{"foo", "bar"}
 	// file_out := ""
 	fmt.Println("输出在这里", *file_flag)
+
+	nex_tmpl, err := template.New("nex").Parse(nex_tmpl.Nex_tmpl)
+	if err != nil {
+		panic("tmpl err")
+	}
+
+	new_file, err := os.OpenFile("a.nex", os.O_CREATE|os.O_RDWR, 0666)
+	if err != nil {
+        fmt.Println("open file error :", err)
+        return
+    }
+	defer new_file.Close()
+
+
 	for _, v := range file_names {
-		// fmt.Println(k, v)
-		read(v)
+		new_nex := read(v)
+		err := nex_tmpl.Execute(new_file, new_nex)
+		if err != nil {
+			fmt.Println("err at tmpl exec", err)
+		}
+
 	}
 }
 
-func read(file_name string) {
+func read(file_name string) map[string]string {
 	f, err := ioutil.ReadFile("./" + file_name)
 	if err != nil {
 		fmt.Println(err)
-		return
+		return nil
 	}
 	// fmt.Println(f)
 
@@ -55,8 +82,9 @@ func read(file_name string) {
 			}
 		}
 	}
-	for k1, v1 := range seq {
-		fmt.Println(k1)
-		fmt.Println(v1)
-	}
+	// for k1, v1 := range seq {
+	// 	fmt.Println(k1)
+	// 	fmt.Println(v1)
+	// }
+	return seq
 }
