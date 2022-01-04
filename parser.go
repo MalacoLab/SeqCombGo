@@ -36,13 +36,13 @@ func main() {
 	file_names := flag.Args() // []string{"foo", "bar"}
 	fmt.Println("[ export here ]", *file_export)
 
-	// 遍历文件
+	// 遍历文件得到基本数据
 	sum_nex := make([]dna, 0, 5)
 	for k, v := range file_names {
 		i, j := fas_parser.Fas_parser(v)
 		new_nex := dna{v, i, j}
 		sum_nex = append(sum_nex, new_nex)
-		fmt.Println("[ working ]", k+1, v)
+		fmt.Println("[ working A ]", k+1, v)
 	}
 
 	// 整合若干文件的统计
@@ -54,29 +54,45 @@ func main() {
 			f = sum_charset[k-1].To
 		}
 		t := f + v.count
+		fmt.Println("[ working B ]", n, f, t)
 		new_charset := charset{n, f, t}
 		sum_charset = append(sum_charset, new_charset)
 	}
-	fmt.Println(sum_charset)
+	// fmt.Println(sum_charset)
 
 	// dna 的整合
-	seq := sum_nex[0].min_dna
-	ntax := 0 // 待修补
+	ntax := 0
 	nchar := sum_charset[len(sum_charset)-1].To
+	sum_dna := make(map[string][]string)
 	for k, v := range sum_nex {
-		if k == 0 {
-			continue
+		for k1 := range v.min_dna {
+			_, has := sum_dna[k1]
+			if !has {
+				sum_dna[k1] = make([]string, len(sum_charset))
+			}
 		}
-		last_count := sum_nex[k-1].count
-		for k1, v1 := range v.min_dna {
-			if _, ok := seq[k1]; ok {
-				seq[k1] = seq[k1] + v1
-			} else {
-				seq[k1] = seq[k1] + strings.Repeat("?", last_count)
+		ntax = k
+	}
+	for k, v := range sum_nex {
+		for _, v1 := range v.min_dna {
+			for k2 := range sum_dna {
+				if _, ok := v.min_dna[k2]; ok {
+					sum_dna[k2][k] = v1
+				} else {
+					sum_dna[k2][k] = strings.Repeat("?", v.count)
+				}
 			}
 		}
 	}
-	last_data := tmpl_data{ntax, nchar, seq, sum_charset}
+	// fmt.Println(sum_dna)
+
+	matrix := make(map[string]string, ntax)
+	for k := range sum_dna {
+		matrix[k] = strings.Join(sum_dna[k], "")
+	}
+
+	// 准备发射到模板的数据
+	last_data := tmpl_data{ntax, nchar, matrix, sum_charset}
 	// fmt.Println(last_data)
 
 	// 读取模板
@@ -96,7 +112,7 @@ func main() {
 
 	// 写入 nex 模板
 	err = nex_tmpl.Execute(new_file, last_data)
-	if  err!= nil {
+	if err != nil {
 		fmt.Println("[ err at tmpl exec ]", err)
 		return
 	}

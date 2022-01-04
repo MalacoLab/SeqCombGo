@@ -6,5 +6,5 @@ sequence combination tool written in Golang
 ```
 parser xxx.fas
 parser xxx.fas yyy.fas
-parser -o 123 xxx.fas // todo
+parser -o export.nex xxx.fas yyy.fas
 ```
