@@ -3,7 +3,7 @@ package fas_parser
 const Nex_tmpl = `#NEXUS
 BEGIN DATA;
 	DIMENSIONS NTAX={{ .Ntax }} NCHAR={{ .Nchar }};
-	FORMAT DATATYPE=DNA GAP=- MISSING=? ; #DATATYPE={}
+	FORMAT DATATYPE=DNA GAP=- MISSING=?;
 MATRIX
 {{- range $k, $v := .Matrix }}
 '{{ $k }}' {{ $v }}{{ end }}
