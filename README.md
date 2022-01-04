@@ -1,6 +1,10 @@
 # gocomb
 sequence combination tool written in Golang
 
+# Requirement
+
+- go
+
 # compile
 ```
 git clone git@github.com:MalacoLab/gocomb.git
