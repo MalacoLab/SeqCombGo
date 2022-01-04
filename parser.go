@@ -3,88 +3,100 @@ package main
 import (
 	"flag"
 	"fmt"
-	"gocomb/src"
-	"io/ioutil"
+	fas_parser "gocomb/src"
 	"os"
+	"strings"
 	"text/template"
 )
 
-type Person struct {
-	Name string
-	DNA  string
+type dna struct {
+	name    string
+	min_dna map[string]string
+	count   int
+}
+
+type charset struct {
+	name string
+	from int
+	to   int
+}
+
+type tmpl_data struct {
+	ntax    int
+	nchar   int
+	matrix  map[string]string
+	charset []charset
 }
 
 func main() {
 
-	file_flag := flag.String("o", "a.nex", "files name wait to out")
-	// 这里一定要是指针样子
+	// 读取命令行，这里一定要是指针
+	file_export := flag.String("o", "a.nex", "files name wait to out")
 	flag.Parse()
 	file_names := flag.Args() // []string{"foo", "bar"}
-	// file_out := ""
-	fmt.Println("输出在这里", *file_flag)
+	fmt.Println("export here", *file_export)
 
-	nex_tmpl, err := template.New("nex").Parse(nex_tmpl.Nex_tmpl)
-	if err != nil {
-		panic("tmpl err")
+	// 遍历文件
+	sum_nex := make([]dna, 0, 5)
+	for k, v := range file_names {
+		i, j := fas_parser.Fas_parser(v)
+		new_nex := dna{v, i, j}
+		sum_nex = append(sum_nex, new_nex)
+		fmt.Println("working", k+1, v)
 	}
 
-	new_file, err := os.OpenFile("a.nex", os.O_CREATE|os.O_RDWR, 0666)
+	// 整合若干文件的统计
+	sum_charset := []charset{}
+	for k, v := range sum_nex {
+		n := v.name
+		f := 1
+		if k != 0 {
+			f = sum_charset[k-1].to
+		}
+		t := f + v.count
+		new_charset := charset{n, f, t}
+		sum_charset = append(sum_charset, new_charset)
+	}
+	fmt.Println(sum_charset)
+
+	// dna 的整合
+	seq := sum_nex[0].min_dna
+	ntax := 0
+	nchar := sum_charset[len(sum_charset)-1].to
+	for k, v := range sum_nex {
+		if k == 0 {
+			continue
+		}
+		last_count := sum_nex[k-1].count
+		for k1, v1 := range v.min_dna {
+			if _, ok := seq[k1]; ok {
+				seq[k1] = seq[k1] + v1
+			} else {
+				seq[k1] = seq[k1] + strings.Repeat("?", last_count)
+			}
+		}
+	}
+	last_data := tmpl_data{ntax, nchar, seq, sum_charset}
+	// fmt.Println(last_data)
+
+	// 读取模板
+	nex_tmpl, err := template.New("nex").Parse(fas_parser.Nex_tmpl)
 	if err != nil {
-        fmt.Println("open file error :", err)
-        return
-    }
+		fmt.Println("[ tmpl err ]", err)
+		return
+	}
+
+	// 覆盖创建要写入的 nex 文件
+	new_file, err := os.OpenFile(*file_export, os.O_CREATE|os.O_RDWR, 0666)
+	if err != nil {
+		fmt.Println("[ create or open file error ]", err)
+		return
+	}
 	defer new_file.Close()
 
-
-	for _, v := range file_names {
-		new_nex := read(v)
-		err := nex_tmpl.Execute(new_file, new_nex)
-		if err != nil {
-			fmt.Println("err at tmpl exec", err)
-		}
-
+	// 写入 nex 模板
+	if nex_tmpl.Execute(new_file, last_data) != nil {
+		fmt.Println("[ err at tmpl exec ]", err)
+		return
 	}
-}
-
-func read(file_name string) map[string]string {
-	f, err := ioutil.ReadFile("./" + file_name)
-	if err != nil {
-		fmt.Println(err)
-		return nil
-	}
-	// fmt.Println(f)
-
-	i := 0 // DNA行计数
-	j := 0 // 非序列行计数
-	seq := make(map[string]string)
-	section := ""
-	// fmt.Println('a', 'c', 'g', 't', '-', '\n', '\r')
-	for k, v := range f {
-		switch v {
-		case 'a', 'c', 'g', 't', '-':
-			if j != 0 {
-				continue
-			}
-			if i == 0 {
-				i = k
-			}
-		case '\n':
-			if i != 0 {
-				seq[section] = seq[section] + string(f[i:k])
-				i = 0
-				continue
-			}
-			section = string(f[j:k])
-			j = 0
-		default:
-			if j == 0 {
-				j = k + 1
-			}
-		}
-	}
-	// for k1, v1 := range seq {
-	// 	fmt.Println(k1)
-	// 	fmt.Println(v1)
-	// }
-	return seq
 }
