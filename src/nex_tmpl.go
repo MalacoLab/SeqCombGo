@@ -11,7 +11,7 @@ MATRIX
 END;
 BEGIN SETS;
 {{- range $_, $i := .Charset }}
-	CHARSET {{ $i.Name }} = {{ $i.From }}-{{ $i.To }};
+	CHARSET {{ replace $i.Name ".fas" "" }} = {{ $i.From }}-{{ $i.To }};
 {{- end }}
 END;
 `
