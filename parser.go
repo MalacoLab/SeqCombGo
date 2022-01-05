@@ -51,9 +51,9 @@ func main() {
 		n := v.name
 		f := 1
 		if k != 0 {
-			f = sum_charset[k-1].To
+			f = sum_charset[k-1].To + 1
 		}
-		t := f + v.count
+		t := f + v.count - 1
 		fmt.Println("[ working B ]", n, f, t)
 		new_charset := charset{n, f, t}
 		sum_charset = append(sum_charset, new_charset)
