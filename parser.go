@@ -64,14 +64,14 @@ func main() {
 	ntax := 0
 	nchar := sum_charset[len(sum_charset)-1].To
 	sum_dna := make(map[string][]string)
-	for k, v := range sum_nex {
+	for _, v := range sum_nex {
 		for k1 := range v.min_dna {
 			_, has := sum_dna[k1]
 			if !has {
 				sum_dna[k1] = make([]string, len(sum_charset))
+				ntax ++
 			}
 		}
-		ntax = k
 	}
 	for k, v := range sum_nex {
 		for _, v1 := range v.min_dna {
