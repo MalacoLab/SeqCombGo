@@ -19,9 +19,8 @@ func fas_sum() []dna {
 }
 
 // 整合若干文件的统计
-func fas_count() []charset {
+func fas_count(sum_nex []dna) []charset {
 	fas_charset := []charset{}
-	sum_nex := fas_sum()
 	for k, v := range sum_nex {
 		n := v.name
 		f := 1
@@ -33,6 +32,6 @@ func fas_count() []charset {
 		new_charset := charset{n, f, t}
 		fas_charset = append(fas_charset, new_charset)
 	}
-	// fmt.Println(sum_charset)
+	fmt.Println(fas_charset)
 	return fas_charset
 }

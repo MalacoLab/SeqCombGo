@@ -17,9 +17,9 @@ func main() {
 
 	sum_nex := fas_sum()
 
-	sum_charset := fas_count()
+	sum_charset := fas_count(sum_nex)
 
-	sum_dna, ntax, nchar := dna_mix(sum_nex, sum_charset)
+	sum_dna, ntax, nchar := fas_mix(sum_nex, sum_charset)
 
 	matrix := make(map[string]string, ntax)
 	for k := range sum_dna {

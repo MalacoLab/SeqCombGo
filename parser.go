@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strings"
 )
 
 type dna struct {
-	name    string
-	count   int
-	min_dna map[string]string
+	name  string
+	count int
+	min   map[string]string
 }
 
 // 读取fas文件
@@ -25,24 +26,24 @@ func fas_parser(file_name string) dna {
 	i := 0  // acgt行计数
 	j := -1 // 标题行计数
 	seq := make(map[string]string)
-	section := ""
+	indid := ""
 
 	for k, v := range f {
 		switch v {
 		case '>':
-			j = k
-			count++
+			j = k + 1
 		case '\n':
 			if j != -1 {
-				section = string(f[j:k])
+				indid = string(f[j:k])
 				i = k + 1
 				j = -1
 				continue
 			}
-			seq[section] = seq[section] + string(f[i:k])
+			seq[indid] = seq[indid] + strings.ToLower(string(f[i:k]))
 			i = k + 1
 		}
 	}
+	count = len(seq[indid])
 	// for k1, v1 := range seq {
 	// 	fmt.Println(k1)
 	// 	fmt.Println(v1)

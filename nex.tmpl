@@ -4,7 +4,8 @@ BEGIN DATA;
 	FORMAT DATATYPE=DNA GAP=- MISSING=?;
 MATRIX
 {{- range $k, $v := .Matrix }}
-'{{ $k }}' {{ $v }}{{ end }}
+'{{ $k }}' {{ $v }}
+{{- end }}
 ;
 END;
 BEGIN SETS;
