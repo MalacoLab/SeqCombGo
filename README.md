@@ -3,7 +3,7 @@ sequence combination tool written in Golang
 
 # Requirement
 
-- go
+- go [for compile]
 
 # Compile
 ```
