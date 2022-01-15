@@ -37,3 +37,7 @@ SeqCombGo -o export.nex import1.fas import2.fas
   url    = {https://github.com/MalacoLab/SeqCombGo},
 }
 ```
+
+# Detail
+
+tobedo

@@ -2,22 +2,30 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"text/template"
 )
 
+const f string = `#NEXUS
+BEGIN DATA;
+	DIMENSIONS NTAX={{ .Ntax }} NCHAR={{ .Nchar }};
+	FORMAT DATATYPE=DNA GAP=- MISSING=?;
+MATRIX
+{{- range $k, $v := .Matrix }}
+'{{ $k }}' {{ $v }}
+{{- end }}
+;
+END;
+BEGIN SETS;
+{{- range $_, $i := .Charset }}
+	CHARSET {{ $i.Name }} = {{ $i.From }}-{{ $i.To }};
+{{- end }}
+END;`
+
 func do_impl(last_data tmpl_data) {
-
-	f, err := ioutil.ReadFile("nex.tmpl")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
 	// 读取模板
-	// read the template 
-	nex_tmpl, err := template.New("nex").Parse(string(f))
+	// read the template
+	nex_tmpl, err := template.New("nex").Parse(f)
 	if err != nil {
 		fmt.Println("[ tmpl err ]", err)
 		return
