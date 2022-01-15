@@ -1,4 +1,4 @@
-# GoComb
+# SeqCombGo
 sequence combination tool written in Golang
 
 # Requirement
@@ -16,13 +16,13 @@ go build
 
 ## Convert fas to nex
 ```
-./gocomb -o output.nex import.fas
-./gocomb import.fas
+SeqCombGo -o output.nex import.fas
+SeqCombGo import.fas
 ```
 
 ## Combine serveral fas to single nex
 
 ```
-./gocomb import1.fas import2.fas
-./gocomb -o export.nex import1.fas import2.fas
+SeqCombGo import1.fas import2.fas
+SeqCombGo -o export.nex import1.fas import2.fas
 ```
