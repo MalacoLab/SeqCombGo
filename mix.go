@@ -4,6 +4,7 @@ import "strings"
 
 func fas_mix(sum_nex []dna, sum_charset []charset) (map[string][]string, int, int) {
 	// dna 的整合
+	// comb of dna
 	ntax := 0
 	nchar := sum_charset[len(sum_charset)-1].To
 	sum_dna := make(map[string][]string)
