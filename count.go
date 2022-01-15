@@ -43,6 +43,6 @@ func fas_name(old_name string) string {
 	compileRegex := regexp.MustCompile("(\w+).\w+")
 	matchArr := compileRegex.FindStringSubmatch(old_name)
 	//needed to use the string get from the old string
-	oldname := matchArr[len(matchArr)-1]
+	old_name := matchArr[len(matchArr)-1]
 	return old_name
 }
