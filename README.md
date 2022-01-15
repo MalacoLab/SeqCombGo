@@ -1,5 +1,5 @@
 # SeqCombGo
-sequence combination tool written in Golang
+**Seq**uence **Comb**ination tool written in **Go**lang
 
 # Requirement
 
@@ -25,4 +25,15 @@ SeqCombGo import.fas
 ```
 SeqCombGo import1.fas import2.fas
 SeqCombGo -o export.nex import1.fas import2.fas
+```
+
+# Cite
+
+```
+@Article{An2022,
+  author = {An, G; Zhang, G},
+  title  = {SeqCombGo: Sequence Combination tool written in Golang},
+  year   = {2022},
+  url    = {https://github.com/MalacoLab/SeqCombGo},
+}
 ```
