@@ -13,6 +13,7 @@ type dna struct {
 }
 
 // 读取fas文件
+// read fas format files
 func fas_parser(file_name string) dna {
 
 	// 读取文件
@@ -23,7 +24,9 @@ func fas_parser(file_name string) dna {
 	}
 
 	count := 0
+	//sequence lines amount
 	i := 0  // acgt行计数
+	//samples amount
 	j := -1 // 标题行计数
 	seq := make(map[string]string)
 	indid := ""
