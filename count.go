@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type charset struct {
 	Name string
@@ -22,7 +24,7 @@ func fas_sum() []dna {
 func fas_count(sum_nex []dna) []charset {
 	fas_charset := []charset{}
 	for k, v := range sum_nex {
-		n := v.name
+		n := fas_name(v.name)
 		f := 1
 		if k != 0 {
 			f = fas_charset[k-1].To + 1
@@ -34,4 +36,10 @@ func fas_count(sum_nex []dna) []charset {
 	}
 	fmt.Println(fas_charset)
 	return fas_charset
+}
+
+func fas_name(old_name string) string {
+	// 需要 最后一个/开始，一个.结束 中间的部分
+	// 正则表达式
+	return old_name
 }
