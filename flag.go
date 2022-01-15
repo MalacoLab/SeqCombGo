@@ -11,6 +11,7 @@ var (
 )
 
 func dna_flag() {
+	flag.StringVar(&file_intput, "i", "input.fas", "input file")
 	flag.StringVar(&file_output, "o", "a.nex", "output file")
 	flag.Parse()
 	file_input = flag.Args() // []string{"foo", "bar"}
