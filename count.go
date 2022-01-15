@@ -12,6 +12,7 @@ type charset struct {
 }
 
 // 遍历文件得到基本数据
+// get basic data
 func fas_sum() []dna {
 	sum := []dna{}
 	for i, f := range file_input {
@@ -22,6 +23,7 @@ func fas_sum() []dna {
 }
 
 // 整合若干文件的统计
+// combine the data from different files
 func fas_count(sum_nex []dna) []charset {
 	fas_charset := []charset{}
 	for k, v := range sum_nex {
