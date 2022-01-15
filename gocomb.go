@@ -27,6 +27,7 @@ func main() {
 	}
 
 	// 准备发射到模板的数据
+	//prepare the var used by tmpl
 	last_data := tmpl_data{ntax, nchar, matrix, sum_charset}
 	// fmt.Println(last_data)
 	do_impl(last_data)
