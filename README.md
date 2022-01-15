@@ -7,7 +7,7 @@
 
 # Compile
 ```
-git clone git@github.com:MalacoLab/gocomb.git
+git clone git@github.com:MalacoLab/SeqCombGo.git
 cd gocomb
 go build
 ```
