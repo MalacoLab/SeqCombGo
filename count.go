@@ -39,7 +39,11 @@ func fas_count(sum_nex []dna) []charset {
 }
 
 func fas_name(old_name string) string {
-	// 需要 最后一个/开始，一个.结束 中间的部分
-	// 正则表达式
+	//needed to import string
+	str := 
+	compileRegex := regexp.MustCompile("(\w+).\w+")
+	matchArr := compileRegex.FindStringSubmatch(str)
+	//needed to use the string get from the old string
+	fmt.Println("output content：", matchArr[len(matchArr)-1])
 	return old_name
 }
