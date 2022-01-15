@@ -40,10 +40,9 @@ func fas_count(sum_nex []dna) []charset {
 
 func fas_name(old_name string) string {
 	//needed to import string
-	str := 
 	compileRegex := regexp.MustCompile("(\w+).\w+")
-	matchArr := compileRegex.FindStringSubmatch(str)
+	matchArr := compileRegex.FindStringSubmatch(old_name)
 	//needed to use the string get from the old string
-	fmt.Println("output content：", matchArr[len(matchArr)-1])
+	oldname := matchArr[len(matchArr)-1]
 	return old_name
 }
