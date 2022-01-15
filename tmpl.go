@@ -16,6 +16,7 @@ func do_impl(last_data tmpl_data) {
 	}
 
 	// 读取模板
+	// read the template 
 	nex_tmpl, err := template.New("nex").Parse(string(f))
 	if err != nil {
 		fmt.Println("[ tmpl err ]", err)
@@ -23,6 +24,7 @@ func do_impl(last_data tmpl_data) {
 	}
 
 	// 覆盖创建要写入的 nex 文件
+	// create the output nex file
 	new_file, err := os.OpenFile(file_output, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println("[ create or open file error ]", err)
@@ -31,6 +33,7 @@ func do_impl(last_data tmpl_data) {
 	defer new_file.Close()
 
 	// 写入 nex 模板
+	// write the nex data
 	err = nex_tmpl.Execute(new_file, last_data)
 	if err != nil {
 		fmt.Println("[ err at tmpl exec ]", err)
