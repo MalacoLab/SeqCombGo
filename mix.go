@@ -2,12 +2,15 @@ package main
 
 import "strings"
 
+// dna 的整合
+// comb of dna
 func fas_mix(sum_nex []dna, sum_charset []charset) (map[string][]string, int, int) {
-	// dna 的整合
-	// comb of dna
+	
 	ntax := 0
 	nchar := sum_charset[len(sum_charset)-1].To
+
 	sum_dna := make(map[string][]string)
+
 	for _, v := range sum_nex {
 		for k1 := range v.min {
 			_, has := sum_dna[k1]
@@ -24,7 +27,7 @@ func fas_mix(sum_nex []dna, sum_charset []charset) (map[string][]string, int, in
 					sum_dna[k2][k] = v1
 				} else {
 					sum_dna[k2][k] = strings.Repeat("?", v.count)
-					// 之前就没写错吗
+					// 之前就没写错吗？已修复
 				}
 			}
 		}
