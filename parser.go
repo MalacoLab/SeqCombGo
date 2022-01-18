@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"strings"
 )
-
+// one file
 type dna struct {
 	name  string
 	count int
