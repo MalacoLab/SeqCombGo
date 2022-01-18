@@ -22,7 +22,7 @@ func print_logo() {
 		"\\__/\\___|\\__, \\____/\\___/|_| |_| |_|_.__/\\____/\\___/ \n" +
 		"            |_|                                      \n")
 	fmt.Println("  Sequence Combination tool written in Golang")
-	fmt.Println("Version 0.0.1  Authors:An,G;Zhang,G  License:GPL-3.0")
+	fmt.Println("Version 0.0.1  Authors: An, G; Zhang, G  License: GPL")
 }
 
 // __              ___                _       ___
