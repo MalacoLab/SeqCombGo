@@ -41,7 +41,7 @@ func do_impl(last_data tmpl_data) {
 	defer new_file.Close()
 
 	// 写入 nex 模板
-	// write the nex data
+	// write the nex data, last data is the inputed data
 	err = nex_tmpl.Execute(new_file, last_data)
 	if err != nil {
 		fmt.Println("[ err at tmpl exec ]", err)
