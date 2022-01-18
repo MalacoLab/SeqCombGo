@@ -7,9 +7,9 @@ import (
 )
 // one file
 type dna struct {
-	name  string
+	name  string //file name
 	count int
-	min   map[string]string
+	min   map[string]string // details
 }
 
 // 读取fas文件
