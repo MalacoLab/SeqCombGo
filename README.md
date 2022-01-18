@@ -27,6 +27,10 @@ SeqCombGo import1.fas import2.fas
 SeqCombGo -o export.nex import1.fas import2.fas
 ```
 
+# Todo
+
+- [ ] datatype recognize
+
 # Cite
 
 ```
@@ -38,6 +42,4 @@ SeqCombGo -o export.nex import1.fas import2.fas
 }
 ```
 
-# Detail
 
-- [ ] datatype recognize
