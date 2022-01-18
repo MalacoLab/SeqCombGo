@@ -23,7 +23,7 @@ func main() {
 
 	matrix := make(map[string]string, ntax)
 	for k := range sum_dna {
-		matrix[k] = strings.Join(sum_dna[k], "")
+		matrix[k] = strings.Join(sum_dna[k], "") //join section to the complete sequence
 	}
 
 	// 准备发射到模板的数据
