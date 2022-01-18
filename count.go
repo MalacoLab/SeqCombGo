@@ -16,7 +16,7 @@ type charset struct {
 func fas_sum() []dna {
 	sum := []dna{}
 	for i, f := range file_input {
-		sum = append(sum, fas_parser(f))
+		sum = append(sum, fas_parser(f)) // sum files
 		fmt.Println("[ Reading ]", i+1, f)
 	}
 	return sum
