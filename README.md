@@ -8,7 +8,7 @@
 # Compile
 ```
 git clone git@github.com:MalacoLab/SeqCombGo.git
-cd gocomb
+cd SeqCombGo
 go build
 ```
 
@@ -40,4 +40,4 @@ SeqCombGo -o export.nex import1.fas import2.fas
 
 # Detail
 
-tobedo
+- [ ] datatype recognize
